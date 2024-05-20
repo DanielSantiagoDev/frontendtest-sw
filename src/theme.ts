@@ -1,5 +1,4 @@
 import { createTheme } from '@mui/material/styles';
-import { CSSProperties } from '@mui/styles';
 export const theme = createTheme({
     palette: {
         background: {
@@ -25,14 +24,6 @@ export const theme = createTheme({
         }
   },
   components: {
-    MuiCssBaseline: {
-        styleOverrides: {
-          body: {
-            padding: '20px',
-            backgroundColor: '#000000', // Optional: Set a background color
-          } as CSSProperties,
-        },
-    },
     MuiButton: {
       styleOverrides: {
         root: {
