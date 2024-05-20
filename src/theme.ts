@@ -30,6 +30,8 @@ export const theme = createTheme({
         body: {
           padding: "50px 30px", // Adjust the padding as needed
           boxSizing: "border-box",
+          maxWidth: "1080px",
+          margin: "0 auto"
         },
       },
     },
