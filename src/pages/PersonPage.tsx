@@ -59,10 +59,19 @@ const PERSON_QUERY = gql`
 
 const StyledCard = styled(Card)`
   border: 2px solid #FFE81F;
-  margin: 0 auto;
-  max-width: 600px;
   color:black;
 `;
+const StyledWrapper = styled.div`
+  margin: 20px auto;
+  width:100%;
+  max-width:620px;
+`
+const StyledProducerList = styled.div`
+  display:flex;
+  justify-content: space-around;
+  margin:40px 0;
+  flex-wrap:wrap;
+`
 
 const ProducerList = ({ films }: { films: Film[] }) => {
   const producersCount: { [key: string]: number } = films.reduce((acc, film) => {
@@ -73,13 +82,13 @@ const ProducerList = ({ films }: { films: Film[] }) => {
   }, {} as Record<string, number>);
 
   return (
-    <>
+    <StyledProducerList>
       {Object.entries(producersCount).map(([producer, count]) => (
         <div key={producer}>
           {producer}: {count} times
         </div>
       ))}
-    </>
+    </StyledProducerList>
   );
 };
 
@@ -147,15 +156,17 @@ const PersonPage = () => {
       <Typography variant="h4" align="center" gutterBottom>
         Films
       </Typography>
-      <FilmCard film={film} />
-      <Box sx={{ display: 'flex', justifyContent: 'center', mt: 2 }}>
-        <Button variant="contained" onClick={handlePrev} disabled={filmIndex === 0}>
-          Prev
-        </Button>
-        <Button variant="contained" onClick={handleNext} disabled={filmIndex === person.filmConnection.films.length - 1} sx={{ ml: 2 }}>
-          Next
-        </Button>
-      </Box>
+      <StyledWrapper>
+        <FilmCard film={film} />
+        <Box sx={{ display: 'flex', justifyContent: 'space-between', mt: 2 }}>
+          <Button variant="contained" onClick={handlePrev} disabled={filmIndex === 0}>
+            Prev
+          </Button>
+          <Button variant="contained" onClick={handleNext} disabled={filmIndex === person.filmConnection.films.length - 1} sx={{ ml: 2 }}>
+            Next
+          </Button>
+        </Box>
+      </StyledWrapper>
     </Box>
   );
 };

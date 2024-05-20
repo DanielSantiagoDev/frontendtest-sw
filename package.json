@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
-    "build": "npm run download-schema && npm run codegen && tsc && vite build",
+    "build": "npm run download-schema && graphql-code-generator && tsc && vite build",
     "preview": "vite preview",
     "ts:check": "tsc",
     "codegen": "DEBUG=1 graphql-code-generator",

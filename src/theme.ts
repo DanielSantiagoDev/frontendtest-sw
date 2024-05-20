@@ -1,4 +1,5 @@
 import { createTheme } from '@mui/material/styles';
+
 export const theme = createTheme({
     palette: {
         background: {
@@ -18,12 +19,20 @@ export const theme = createTheme({
             color: '#FFE81F'
         },
         h3: {
-            fontFamily: '"Star Wars", sans-serif',
+            fontFamily: '"Star Jedi", sans-serif',
             letterSpacing: '0.1em',
             color: '#FFE81F'
         }
   },
   components: {
+    MuiCssBaseline: {
+      styleOverrides: {
+        body: {
+          padding: "50px 30px", // Adjust the padding as needed
+          boxSizing: "border-box",
+        },
+      },
+    },
     MuiButton: {
       styleOverrides: {
         root: {
